@@ -40,13 +40,13 @@ def printOrder(s, enablePrint):
                     js = json.dumps(js) #convert to string
                     jout+=js #append to output string
                     jout+="," #insert seperator
-                elif sh.cell_value(rowx=rx, colx=6).lower() == "total":
+                elif "total" in sh.cell_value(rowx=rx, colx=6).lower():
                     total = sh.cell_value(rowx=rx, colx=7)
-                elif sh.cell_value(rowx=rx, colx=1).lower() == "organization:":
+                elif "organization" in sh.cell_value(rowx=rx, colx=1).lower():
                     org = sh.cell_value(rowx=rx, colx=2)
-                elif sh.cell_value(rowx=rx, colx=6).lower() == "week":
+                elif "week" in sh.cell_value(rowx=rx, colx=6).lower():
                     week = sh.cell_value(rowx=rx, colx=7)
-                elif sh.cell_value(rowx=rx, colx=1).lower() == "delivery date:":
+                elif "delivery date" in sh.cell_value(rowx=rx, colx=1).lower():
                     date = sh.cell_value(rowx=rx, colx=2)
             except: #do nothing
                 index = 0
@@ -98,17 +98,17 @@ def printInvoice(s, enablePrint):
                     js = json.dumps(js) #convert to string
                     jout+=js #append to output string
                     jout+="," #insert seperator
-                elif sh.cell_value(rowx=rx, colx=5).lower() == "total payable:":
+                elif "total payable" in sh.cell_value(rowx=rx, colx=5).lower():
                     total = sh.cell_value(rowx=rx, colx=7)
-                elif sh.cell_value(rowx=rx, colx=4).lower() == "organization:":
+                elif "organization" in sh.cell_value(rowx=rx, colx=4).lower():
                     org = sh.cell_value(rowx=rx, colx=6)
-                elif sh.cell_value(rowx=rx, colx=4).lower() == "week":
+                elif "week" in sh.cell_value(rowx=rx, colx=4).lower():
                     week = sh.cell_value(rowx=rx, colx=6)
-                elif sh.cell_value(rowx=rx, colx=4).lower() == "date:":
+                elif "date" in sh.cell_value(rowx=rx, colx=4).lower():
                     date = sh.cell_value(rowx=rx, colx=6)
                 elif "payment due" in sh.cell_value(rowx=rx, colx=2).lower():
                     due = sh.cell_value(rowx=rx, colx=4)
-                elif sh.cell_value(rowx=rx, colx=4).lower() == "invoice number:":
+                elif "invoice number" in sh.cell_value(rowx=rx, colx=4).lower():
                     invoice = str(sh.cell_value(rowx=rx, colx=6)) + " "
                     invoice += str(sh.cell_value(rowx=rx, colx=7)) + " "
                     invoice += str(sh.cell_value(rowx=rx, colx=8))

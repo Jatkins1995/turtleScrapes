@@ -25,7 +25,7 @@ for each in stuff:
 		ppu = re.search(r'[0-9]\.[0-9][0-9]/kg', each)
 		if ppu:
 			ppu = re.sub(r'/kg', "", ppu.group(0))
-			ppu = float(ppu)/100
+			ppu = float(ppu)/10
 
 			items.insert(len(items), thing[i])
 			price.insert(len(price), ppu)

@@ -8,20 +8,20 @@ def isFloat(s):
     except ValueError:
         return False
 
-def printAll(s, enablePrint):
-    jout = printOrder(s, enablePrint)
+def printAll(s):
+    jout = printOrder(s)
     jout = json.dumps(jout)
     f = open('order.json', 'w')
     f.write(jout)
     f.close()
     
-    jout = printInvoice(s, enablePrint)
+    jout = printInvoice(s)
     jout = json.dumps(jout)
     f = open('invoice.json', 'w')
     f.write(jout)
     f.close()
     
-def printOrder(s, enablePrint):
+def printOrder(s):
     try:
         book = xlrd.open_workbook(s)
         sh = 0 #sheet init
@@ -71,14 +71,12 @@ def printOrder(s, enablePrint):
         jout+=str(date)
         jout+="\"}"
         jout = json.loads(jout) #to json
-        if enablePrint:
-            print jout
         return jout
     except:
         print "failed to read from POD order sheet"
         return None
     
-def printInvoice(s, enablePrint):
+def printInvoice(s):
     try:
         book = xlrd.open_workbook(s)
         sh = 0 #sheet init
@@ -153,11 +151,9 @@ def printInvoice(s, enablePrint):
             jout+="\"None\""
         jout+="}"
         jout = json.loads(jout) #to json
-        if enablePrint:
-            print jout
         return jout
     except:
         print "failed to read from POD invoice sheet"
         return None
     
-printAll("pod.xlsx", 0)
+printAll("pod.xlsx")

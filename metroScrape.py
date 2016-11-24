@@ -30,7 +30,7 @@ for each in stuff:
 			ppu = re.sub(r'/kg', "", ppu.group(0))
 			ppu = float(ppu)/10
 
-			items[thing[i]] = ppu
+			items[thing[i].lower().capitalize()] = ppu
 	i = i+1
 
 print json.dumps(items)

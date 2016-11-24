@@ -1,5 +1,6 @@
 import requests
 import re
+import json
 
 def clean(text):
 	text = text.replace("&nbsp;", " ")
@@ -18,8 +19,7 @@ content = webpage.content
 thing = re.findall(r'\<b>(.*?)\</b>', content)
 stuff = re.findall(r'\</b>((.|\n)*?)\<b>', content)
 
-items = []
-price = []
+items = {}
 i = 0
 
 for each in stuff:
@@ -30,17 +30,7 @@ for each in stuff:
 			ppu = re.sub(r'/kg', "", ppu.group(0))
 			ppu = float(ppu)/10
 
-			items.insert(len(items), thing[i])
-			price.insert(len(price), ppu)
+			items[thing[i]] = ppu
 	i = i+1
 
-json = "{"
-i=0
-for item in items:
-	json = json+'"'+str(item)+'": '+str(price[i])
-	if i < len(items)-1:
-		json = json+", "
-	i=i+1
-json=json+"}"
-
-print json
+print json.dumps(items)

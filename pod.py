@@ -1,11 +1,12 @@
 import xlrd
 import json
+import sys
 
 def isFloat(s):
     try:
         float(s)
         return True
-    except ValueError:
+    except:
         return False
 
 def printAll(s):
@@ -155,5 +156,8 @@ def printInvoice(s):
     except:
         print "failed to read from POD invoice sheet"
         return None
-    
-printAll("pod.xlsx")
+try:
+    printAll(sys.argv[1])
+except:
+    print "Sample usage: python pod.py <file>"
+print "Exited."

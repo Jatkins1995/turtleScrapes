@@ -9,8 +9,17 @@ def isFloat(s):
         return False
 
 def printAll(s, enablePrint):
-    printOrder(s, enablePrint)
-    printInvoice(s, enablePrint)
+    jout = printOrder(s, enablePrint)
+    jout = json.dumps(jout)
+    f = open('order.json', 'w')
+    f.write(jout)
+    f.close()
+    
+    jout = printInvoice(s, enablePrint)
+    jout = json.dumps(jout)
+    f = open('invoice.json', 'w')
+    f.write(jout)
+    f.close()
     
 def printOrder(s, enablePrint):
     try:
@@ -151,4 +160,4 @@ def printInvoice(s, enablePrint):
         print "failed to read from POD invoice sheet"
         return None
     
-printAll("pod.xlsx", 1)
+printAll("pod.xlsx", 0)

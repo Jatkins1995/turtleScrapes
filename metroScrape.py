@@ -9,7 +9,10 @@ def clean(text):
 	text = text.replace("&#162;", "cents")
 	return text.strip()
 
-webpage = requests.get("http://eflyer.metro.ca/MTR/MTRO/en/04dd98b7-ca44-4e25-939f-2fac12fe3f8d/Text")
+landingPage = requests.get("http://www.metro.ca/en/flyer")
+eflyer = str(re.findall(r'/MTR/MTRO/en/.+/Page/PDF', landingPage.content)[0]).replace("Page/PDF", "Text")
+
+webpage = requests.get("http://eflyer.metro.ca"+eflyer)
 content = webpage.content
 
 thing = re.findall(r'\<b>(.*?)\</b>', content)

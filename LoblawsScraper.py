@@ -24,7 +24,7 @@ class LoblawsScraper:
 			"https://www.loblaws.ca/Food/Fruits-%26-Vegetables/Vegetable/Peas%2C-Beans-%26-Corn/plp/LSL001001002005",
 			"https://www.loblaws.ca/Food/Fruits-%26-Vegetables/Vegetable/Peppers-%26-Tomatoes/plp/LSL001001002009",
 			"https://www.loblaws.ca/Food/Fruits-%26-Vegetables/Vegetable/Potato%2C-Onions-%26-Carrots/plp/LSL001001002001",
-			"https://www.loblaws.ca/Food/Fruits-%26-Vegetables/Vegetable/Squash-%26-Pumpkins/plp/LSL001001002002",
+			"https://www.loblaws.ca/Food/Fruits-%26-Vegetables/Vegetable/Squash-%26-Pumpkins/plp/LSL001001002002"
 			]
 
 		returnHash = {}
